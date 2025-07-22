@@ -7,8 +7,8 @@ import SuggestedUsers from './SuggestedUsers'
 const RightSidebar = () => {
   const { user } = useSelector(store => store.auth)
 
-  // ✅ Prevent rendering until user is loaded
-  if (!user) return null; // or you could return a loader/skeleton instead
+  
+  if (!user) return null; 
 
   return (
     <div className='w-fit my-10 pr-16'>

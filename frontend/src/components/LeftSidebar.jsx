@@ -24,7 +24,7 @@ const LeftSidebar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/v1/user/logout', { withCredentials: true })
+            const res = await axios.get('instagram-clone-pi-neon.vercel.app/api/v1/user/logout', { withCredentials: true })
             if (res.data.success) {
                 dispatch(setAuthUser(null))
                 dispatch(setSelectedPost(null))
@@ -49,14 +49,13 @@ const LeftSidebar = () => {
         } else if (textType == 'Messages') {
             navigate("/chat")
         }
-        // No direct dispatch for 'Notifications' here
+        
     }
 
     const handlePopoverOpenChange = (openState) => {
         setIsPopoverOpen(openState); // Update local state for controlled Popover
 
-        // CRITICAL CHANGE: Dispatch clear notifications ONLY when the popover is CLOSING
-        // AND there were notifications to begin with.
+        
         if (!openState && likeNotification.length > 0) {
             dispatch(clearLikeNotifications());
         }

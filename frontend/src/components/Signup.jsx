@@ -27,7 +27,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post('http://localhost:8000/api/v1/user/registor', input, {
+      const res = await axios.post('instagram-clone-pi-neon.vercel.app/api/v1/user/registor', input, {
         headers: {
           'Content-Type': 'application/json'
         },
