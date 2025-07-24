@@ -41,6 +41,10 @@ app.use("/api/v1/message", messageRoute)
 //     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
 // })
 
+app.get("/", (req, res) => {
+    res.send("Social media platform backend running!");
+  });
+
 
 
 server.listen(PORT, ()=>{
