@@ -9,6 +9,8 @@ import Messages from './Messages'
 import axios from 'axios'
 import { setMessages } from '@/redux/chatSlice.js'
 
+const API = import.meta.env.VITE_API_URL;
+
 const ChatPage = () => {
     const [textMessage, setTextMessage] = useState("")
     const { user, suggestedUsers, selectedUser } = useSelector(store => store.auth)
@@ -17,7 +19,7 @@ const ChatPage = () => {
 
     const sendMessageHandler = async (receiverId) => {
         try {
-            const res = await axios.post(`https://instagram-clone-pi-neon.vercel.app/api/v1/message/send/${receiverId}`, { textMessage }, {
+            const res = await axios.post(`${API}/api/v1/message/send/${receiverId}`, { textMessage }, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

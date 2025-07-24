@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
 import { useSelector } from 'react-redux';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Signup = () => {
   const [input, setInput] = useState({
     username: "",
@@ -27,7 +29,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post('https://instagram-clone-pi-neon.vercel.app/api/v1/user/registor', input, {
+      const res = await axios.post(`${API}/api/v1/user/registor`, input, {
         headers: {
           'Content-Type': 'application/json'
         },

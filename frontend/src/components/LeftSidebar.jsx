@@ -14,6 +14,9 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Button } from './ui/button'
 import { clearLikeNotifications } from '@/redux/rtnSlice'
 
+
+const API = import.meta.env.VITE_API_URL;
+
 const LeftSidebar = () => {
     const navigate = useNavigate()
     const { user } = useSelector(store => store.auth)
@@ -24,7 +27,7 @@ const LeftSidebar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get('https://instagram-clone-pi-neon.vercel.app/api/v1/user/logout', { withCredentials: true })
+            const res = await axios.post(`${API}/api/v1/user/login`, { withCredentials: true })
             if (res.data.success) {
                 dispatch(setAuthUser(null))
                 dispatch(setSelectedPost(null))

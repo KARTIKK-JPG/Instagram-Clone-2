@@ -20,10 +20,11 @@ const CommentDialog = ({ open, setOpen }) => {
     setText(inputText.trim() ? inputText : "")
   }
 
+  const API = import.meta.env.VITE_API_URL;
+
   const sendMessageHandler = async () => {
     try {
-      const res = await axios.post(
-        `https://instagram-clone-pi-neon.vercel.app/api/v1/post/${selectedPost?._id}/comment`,
+      const res = await axios.post(`${API}/api/v1/post/${selectedPost?._id}/comment`,
         { text },
         {
           headers: {

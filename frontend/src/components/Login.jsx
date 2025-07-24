@@ -9,6 +9,8 @@ import { Loader2 } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser } from '@/redux/authSlice';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const [input, setInput] = useState({
     email: "",
@@ -28,7 +30,7 @@ const Login = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post('https://instagram-clone-pi-neon.vercel.app/api/v1/user/login', input, {
+      const res = await axios.post(`${API}/api/v1/user/login`, input, {
         headers: {
           'Content-Type': 'application/json'
         },

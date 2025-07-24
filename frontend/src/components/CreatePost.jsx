@@ -11,6 +11,8 @@ import { toast } from 'sonner'
 import { useDispatch, useSelector } from 'react-redux'
 import { setPosts } from '@/redux/postSlice'
 
+const API = import.meta.env.VITE_API_URL;
+
 const CreatePost = ({ open, setOpen }) => {
   const imageRef = useRef()
   const [file, setFile] = useState("")
@@ -37,7 +39,7 @@ const CreatePost = ({ open, setOpen }) => {
     if (imagePreview) formData.append("image", file)
     try {
       setLoading(true)
-      const res = await axios.post('https://instagram-clone-pi-neon.vercel.app/api/v1/post/addpost', formData, {
+      const res = await axios.post(`${API}/api/v1/post/addpost`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },

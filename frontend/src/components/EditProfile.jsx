@@ -18,6 +18,8 @@ import axios from 'axios'
 import { setAuthUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
 
+const API = import.meta.env.VITE_API_URL;
+
 const EditProfile = () => {
     const imageRef = useRef()
     const { user } = useSelector(store => store.auth)
@@ -53,7 +55,7 @@ const EditProfile = () => {
         }
         try {
             setLoading(true)
-            const res = await axios.post('https://instagram-clone-pi-neon.vercel.app/api/v1/user/profile/edit', formData, {
+            const res = await axios.post(`${API}/api/v1/user/profile/edit`, formData, {
                 headers: {
                     'Content-type': 'multipart/form-data'
                 },
