@@ -24,7 +24,7 @@ const LeftSidebar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get('instagram-clone-pi-neon.vercel.app/api/v1/user/logout', { withCredentials: true })
+            const res = await axios.get('https://instagram-clone-pi-neon.vercel.app/api/v1/user/logout', { withCredentials: true })
             if (res.data.success) {
                 dispatch(setAuthUser(null))
                 dispatch(setSelectedPost(null))
