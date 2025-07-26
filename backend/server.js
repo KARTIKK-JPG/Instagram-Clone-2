@@ -25,9 +25,10 @@ app.use(cookieParser())
 app.use(urlencoded({extended:true}))
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'http://localhost:5174','https://instagram-clone-pi-neon.vercel.app'],
-    credentials: true
-};
+    origin: ['http://localhost:5173'],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  };
 
 app.use(cors(corsOptions));
 
